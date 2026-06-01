@@ -1,0 +1,15 @@
+name = "steam-achievement-backend"
+main = "worker/index.js"
+compatibility_date = "2026-05-29"
+
+# Run: wrangler d1 create steam_achievements
+# Then replace database_id below.
+[[d1_databases]]
+binding = "DB"
+database_name = "steam_achievements"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# Run these secrets separately:
+# wrangler secret put STEAM_API_KEY
+# wrangler secret put SESSION_SECRET
+# wrangler secret put CLIENT_URL

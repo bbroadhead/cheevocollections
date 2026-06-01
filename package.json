@@ -1,0 +1,24 @@
+{
+  "name": "steam-achievement-collections-serverless",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "worker:dev": "wrangler dev worker/index.js --local",
+    "worker:deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute steam_achievements --file=worker/schema.sql --remote",
+    "db:init:local": "wrangler d1 execute steam_achievements --file=worker/schema.sql --local"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "wrangler": "latest"
+  }
+}
