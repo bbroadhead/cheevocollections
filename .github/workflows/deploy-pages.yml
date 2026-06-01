@@ -28,8 +28,11 @@ jobs:
         with:
           node-version: 22
 
-      - run: npm ci --omit=dev
-      - run: npm run build
+      - name: Install frontend dependencies
+        run: npm install --no-package-lock --no-audit --no-fund vite @vitejs/plugin-react react react-dom
+
+      - name: Build frontend
+        run: npx vite build
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
